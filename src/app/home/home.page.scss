@@ -1,0 +1,32 @@
+
+ion-button {
+    width: 100%;
+    height: 13vw;
+    overflow: hidden;
+}
+ion-col {
+    height: 60px;
+}
+.out {
+    background-image: url("../../assets/imgs/rodent.png");
+    background-size: cover;
+}
+
+.hid {
+    background-image: url("../../assets/imgs/empty.png");
+    background-size: cover;
+}
+
+.hit {
+    background-image: url("../../assets/imgs/rodent_hit.png");
+    background-size: cover;
+}
+
+.hit-message {
+    display: none;
+    color: red;
+}
+
+.hit-message.active {
+    display: block;
+}

@@ -1,7 +1,7 @@
 {
-  "name": "observer_storage",
+  "name": "lab6i4v",
   "integrations": {
     "cordova": {}
   },
-  "type": "ionic-angular"
+  "type": "angular"
 }

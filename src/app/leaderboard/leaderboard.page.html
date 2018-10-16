@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-title>leaderboard</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Your score is {{score}}</h1>
+  <h2>Leaderboard</h2>
+  <ion-item *ngFor="let score of scoreList; let i=index">
+    <div *ngIf="i<10">
+      <span>{{score.score}}</span> : <span>{{score.time | date :'short'}}</span>
+    </div>
+  </ion-item>
+</ion-content>

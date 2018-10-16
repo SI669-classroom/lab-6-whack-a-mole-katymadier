@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      whack-a-mole
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let hole of moleHoles">
+        <ion-button [class]="stateToClass(hole.moleState)" (click)="hit(hole)"></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row >
+      <ion-col size="12">
+        <h3>{{timeLeft}}s left</h3>
+      </ion-col>
+      <ion-col size="12">
+        <h3>Your Score: {{score}}</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+          <ion-button color="dark" outline (click)="stopGame()">Stop Game</ion-button>
+      </ion-col>
+      <ion-col size="6">
+          <ion-button color="dark" outline (click)="resetGame()">Reset Game</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+          <h2 class="hit-message" [class.active]="showHitMessage">Hit!!</h2>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
