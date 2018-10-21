@@ -116,16 +116,16 @@ export class HomePage {
     switch (state) {
       // added classes depending on state
       case 0: {
-         return "hid hydrated";
+         return "hid hydrated button button-md button-clear button-clear-md activated";
       }
       case 1: {
-        return "out hydrated";
+        return "out hydrated button button-md button-clear button-clear-md activated";
       }
       case 2: {
-        return "hit hydrated";
+        return "hit hydrated button button-md button-clear button-clear-md activated";
       }
       default: {
-        return "hydrated";
+        return "hydrated button button-md button-clear button-clear-md activated";
       }
     }
   }
