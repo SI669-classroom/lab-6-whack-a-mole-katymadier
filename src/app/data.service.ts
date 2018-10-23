@@ -20,7 +20,7 @@ export class DataService {
       this.storage.set('score', data);
     }
 
-    getLatestScore(): void {
+    getLatestScore() {
       this.storage.get('score').then((result)=>{
         if (!result){
           console.log("score was null")
@@ -31,7 +31,7 @@ export class DataService {
         }
       });
     }
-    getLeaderboardData(): void {
+    getLeaderboardData(){
       console.log("getting data from leaderboard");
       return this.storage.get('leaderboard').then((result)=>{
         if (!result){

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
 import { NavController, Platform } from '@ionic/angular';
 import { DataService } from '../data.service';
 import { Storage } from '@ionic/storage';
