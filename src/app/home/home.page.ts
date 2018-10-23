@@ -19,6 +19,7 @@ export class HomePage {
   gameTimer: any;
   timeLeft: number = 0;
   timerObserver: any;
+  sound: any;
 
   //gave score a type
   score: number = 0;
@@ -44,11 +45,10 @@ export class HomePage {
     this.moleObservable.subscribe((score) => {
       this.score++;
       console.log("updating score with observable & putting in storage", this.score)
-      this.storage.set('score', this.score);
+      this.dataService.dsSaveScore(this.score);
     })
     for (let i = 0; i < 9; i++) {
       this.moleHoles.push(new MoleHole(i, this.moleObserver))
-      // console.log(this.moleObserver);
     }
 
     let timerUpdate = Observable.create(observer => {
@@ -92,8 +92,7 @@ export class HomePage {
 
   saveScore() {
     //updated to ionic4 navigation
-    console.log("updating score without observable & putting in storage", this.score)
-    this.storage.set('score', this.score);
+    this.dataService.dsSaveScore(this.score);
     this.navCtrl.navigateForward('/leaderboard');
   }
 

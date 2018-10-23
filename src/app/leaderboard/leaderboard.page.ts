@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { NavController, Platform } from '@ionic/angular';
 import { DataService } from '../data.service';
 import { Storage } from '@ionic/storage';
@@ -11,21 +12,23 @@ import { RouterModule } from '@angular/router';
 })
 
 export class LeaderboardPage implements OnInit {
-  score: number;
-  scoreList: any[] = [];
+  public score: number;
+  public scoreList: any[] = [];
+  public resolved: boolean = false;
 
   constructor(
+    private platform: Platform,
     public navCtrl: NavController,
     public dataService: DataService,
     public storage: Storage,
     public router: RouterModule) {
-      this.storage.get('score').then((val) => {
-        this.score = val;
-      });
+      // TRIED TO USE DATA SERVICE TO RUN THESE FUNCTIONS BELOW>>> Couldn't get the functions to run in the right order. Tried promises, but couldn't work it out.
+
+      // this.dataService.getLatestScore();
+      // this.dataService.getLeaderboardData();
     }
 
   ngOnInit() {
-    // get score from saved score
     this.storage.get('score').then((val) => {
       if (val==null){
         this.score = 0;
@@ -35,7 +38,6 @@ export class LeaderboardPage implements OnInit {
         this.score = val;
         console.log("Pulled score from storage", this.score);
       }
-      // get from leaderboard
       this.storage.get('leaderboard').then((result) => {
         let res;
         if (!result) {

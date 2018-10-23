@@ -1,4 +1,4 @@
-// import { NativeAudio } from '@ionic-native/native-audio';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 export class MoleHole {
   //moleState
@@ -8,14 +8,12 @@ export class MoleHole {
 
   moleState: Number;
   holeNumber: Number;
-  // nativeAudio: NativeAudio = new NativeAudio();
+  nativeAudio: NativeAudio = new NativeAudio();
 
   constructor(public num: Number, public observer: any) {
     this.moleState = 0;
     this.holeNumber = num;
-
-    // this.nativeAudio.preloadSimple('squish', '../assets/squish.mp3');
-    //.then(onSuccess, onError);
+    this.nativeAudio.preloadSimple('squish', '../assets/squish.mp3').then();
   }
 
   showMole(duration) {
@@ -31,12 +29,15 @@ export class MoleHole {
     }
   }
 
+
+// cordova errors with the nativeAudio... not sure how to fix these.
+
   hit() {
     if (this.moleState === 1) {
       this.moleState = 2;
       console.log("hit ", this.moleState);
       this.observer.next(true);
-      // this.nativeAudio.play('squish');
+      this.nativeAudio.play('squish').then();
       let that = this;
       setTimeout(function() {
         that.moleState = 0
